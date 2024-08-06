@@ -8,7 +8,7 @@ on:
         type: string
         description: "The branch to publish from"
         default: "main"
-      version bump:
+      environment:
         type: choice
         description: Which environment to deploy to
         options:
@@ -23,4 +23,4 @@ jobs:
       - name: Echo inputs
         run: |
           echo "Branch: ${{ inputs.branch }}"
-          echo "Version bump: ${{ inputs.version_bump }}"
+          echo "Version bump: ${{ inputs.environment }}"
