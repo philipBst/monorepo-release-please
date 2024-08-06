@@ -1,0 +1,26 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        required: true
+        type: string
+        description: "The branch to publish from"
+        default: "main"
+      version bump:
+        type: choice
+        description: Which environment to deploy to
+        options:
+          - development
+          - staging
+          - production
+        required: true
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo inputs
+        run: |
+          echo "Branch: ${{ inputs.branch }}"
+          echo "Version bump: ${{ inputs.version_bump }}"
